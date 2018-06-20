@@ -20,8 +20,6 @@ import InspectionIcon from 'react-icons/lib/md/find-in-page'
 import logoImage from 'maputnik-design/logos/logo-color.svg'
 import pkgJson from '../../package.json'
 
-import styleSpec from '@mapbox/mapbox-gl-style-spec'
-
 import style from '../libs/style'
 
 class IconText extends React.Component {
@@ -62,23 +60,14 @@ class ToolbarAction extends React.Component {
   }
 
   render() {
-    let className = 'maputnik-toolbar-action ';
-    if(this.props.disabled) {
-      className += 'maputnik-toolbar-action--disabled'
-    }
     return <button
-      className={className}
+      className='maputnik-toolbar-action'
       data-wd-key={this.props.wdKey}
       onClick={this.props.onClick}
     >
       {this.props.children}
     </button>
   }
-}
-
-function hasStyleChanged(beforeStyle, afterStyle) {
-  const changes = styleSpec.diff(beforeStyle, afterStyle);
-  return (changes.length > 0);
 }
 
 export default class Toolbar extends React.Component {
@@ -158,12 +147,10 @@ export default class Toolbar extends React.Component {
             <HelpIcon />
             <IconText>Help</IconText>
           </ToolbarLink>
-          {window.githubOrig && (
-            <ToolbarAction wdKey="nav:github" onClick={this.props.onToggleModal.bind(this, 'github')} disabled={!hasStyleChanged(window.githubOrig, this.props.mapStyle)}>
-              <SourcesIcon />
-              <IconText>Save github</IconText>
-            </ToolbarAction>
-          )}
+          <ToolbarAction wdKey="nav:github" onClick={this.props.onToggleModal.bind(this, 'github')}>
+            <SourcesIcon />
+            <IconText>Save github</IconText>
+          </ToolbarAction>
         </div>
       </div>
     </div>
