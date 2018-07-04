@@ -2,7 +2,6 @@ import React from 'react'
 import Button from '../Button'
 import GitHub from 'github-api'
 import githubBrowser from '@mapbox/github-file-browser'
-import uid from 'uid'
 
 class GitHubSection extends React.Component {
 
