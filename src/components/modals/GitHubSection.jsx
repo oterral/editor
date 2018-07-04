@@ -14,7 +14,7 @@ class GitHubSection extends React.Component {
         token: window.localStorage.getItem("github_access_token")
       })
     };
-    this.tileserverGlUrl = 'https://tileserver.dev.bgdi.ch';
+    this.tileserverGlUrl = null; //https://tileserver.dev.bgdi.ch';
     this.OAUTH_CLIENT_ID = '8ff1a5c09a772ad0e92d';
     this.checkGitHubAuth();
     this.githubTree = React.createRef();
